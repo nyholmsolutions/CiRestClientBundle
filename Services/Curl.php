@@ -90,7 +90,10 @@ class Curl implements CurlInterface {
 
         $this->setUrl($url);
         $this->setMethod($method);
-        $this->setPayload($payload);
+        if ($payload !== "")
+        {
+            $this->setPayload($payload);
+        }
         curl_setopt_array($this->curl, $this->curlOptionsHandler->getOptions());
 
         $curlResponse = $this->execute();
