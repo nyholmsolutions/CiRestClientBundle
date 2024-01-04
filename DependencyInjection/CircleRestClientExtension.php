@@ -37,8 +37,8 @@ class CircleRestClientExtension extends Extension
      *
      * @SuppressWarnings("PHPMD.StaticAccess")
      */
-    public function load(array $configs, ContainerBuilder $container)
-    {
+    public function load(array $configs, ContainerBuilder $container): void
+	{
         $curlConfigFile   = __DIR__ . '/../Resources/config/curl_config.yml';
         $configs          = array_merge(Yaml::parse(file_get_contents($curlConfigFile)), $configs);
         if (!isset($configs['circle_rest_client'])) throw new \RuntimeException('configuration circle_rest_client is missing.');

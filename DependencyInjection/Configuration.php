@@ -34,15 +34,10 @@ class Configuration implements ConfigurationInterface
      *
      * @SuppressWarnings("PHPMD.StaticAccess")
      */
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
-        if (method_exists(TreeBuilder::class, 'getRootNode')) {
-    	    $treeBuilder = new TreeBuilder('circle_rest_client');
-    	    $rootNode = $treeBuilder->getRootNode();
-        } else {
-    	    $treeBuilder = new TreeBuilder();
-    	    $rootNode = $treeBuilder->root('circle_rest_client');
-        }
+		$treeBuilder = new TreeBuilder('circle_rest_client');
+		$rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->children()
